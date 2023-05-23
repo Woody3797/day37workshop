@@ -1,6 +1,5 @@
 package ibf2022.csf.day37workshop.repository;
 
-import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -20,6 +19,7 @@ public class PostsRepository {
         // doc.put("_id", post_id);
         // doc.put("title", title);
         // doc.put("content", content);
+        // can use insert(doc) instead of upsert
 
         Query query = new Query(Criteria.where("_id").is(post_id));
         Update update = new Update();
