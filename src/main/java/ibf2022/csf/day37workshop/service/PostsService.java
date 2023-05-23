@@ -37,7 +37,6 @@ public class PostsService {
 
     public Optional<byte[]> getPicture(String post_id) {
         Optional<byte[]> picture = imageRepository.getPicture(post_id);
-
         return picture;
     }
 }
