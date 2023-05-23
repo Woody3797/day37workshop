@@ -10,4 +10,4 @@ CREATE TABLE posts (
     PRIMARY KEY (post_id)
 );
 
-GRANT ALL privileges ON feeds.* to 'test'@'%';
+GRANT ALL privileges ON feeds.* to 'test'@'localhost';
