@@ -1,6 +1,7 @@
 package ibf2022.csf.day37workshop.controller;
 
 import java.io.IOException;
+import java.util.Base64;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +44,12 @@ public class PostsController {
         model.addAttribute("title", title);
         model.addAttribute("content", content);
         model.addAttribute("picture", "/uploaded/" + post_id);
+
+        // Embed image data directly, see upload.html for info (base64)
+        StringBuilder sb = new StringBuilder();
+        String encoded = Base64.getEncoder().encodeToString(picture.getBytes());
+        String imageData = sb.append("data:").append(picture.getContentType()).append(";base64,").append(encoded).toString();
+        model.addAttribute("pic", imageData);
         
         return "uploaded";
     }
@@ -54,7 +62,7 @@ public class PostsController {
         if (image.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok().header("Content-Type", contentType).body(image.get());
+            return ResponseEntity.ok().body(image.get());
         }
     }
 
