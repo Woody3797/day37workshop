@@ -47,8 +47,10 @@ public class PostsController {
         // Embed image data directly, see upload.html for info (base64)
         StringBuilder sb = new StringBuilder();
         String encoded = Base64.getEncoder().encodeToString(picture.getBytes());
-        String imageData = sb.append("data:").append(picture.getContentType()).append(";base64,").append(encoded).toString();
+        System.out.println(encoded.substring(0, 100));
+        String imageData = sb.append("data:").append(contentType).append(";base64,").append(encoded).toString();
         model.addAttribute("pic", imageData);
+        model.addAttribute("pic2", encoded);
         
         return "uploaded";
     }
@@ -64,6 +66,5 @@ public class PostsController {
             return ResponseEntity.ok().body(image.get());
         }
     }
-
 
 }

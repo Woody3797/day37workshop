@@ -46,11 +46,27 @@
             </td>
         </tr>
         <tr>
-            <img data-th-src="${picture}" width="300px">
+            <td>Pic using GET method: </td>
+            <td>
+                <img data-th-src="${picture}" width="300px">
+            </td>
         </tr>
-        <tr> this does NOT work, cannot retrieve byte[] directly. have to convert to base64 if you want to use this method
-            <img data-th-src="${pic}" width="300px">
+        <tr>
+            <td style="width: 300px; word-wrap: break-word;">Pic using base64 embed method: cannot retrieve byte[] directly. have to convert to base64 if you want to use this method</td>
+            <td>
+                <img data-th-src="${pic}" width="300px">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img data-th-src="data:image/png;base64, ${pic2}">
+                <span data-th-text="${pic2}">text</span>
+            </td>
         </tr>
     </table>
+    <br>
+    <div>
+        <button type="button" onclick="history.back()">Back</button>
+    </div>
 </body>
 </html>
