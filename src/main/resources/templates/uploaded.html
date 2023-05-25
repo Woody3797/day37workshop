@@ -48,19 +48,19 @@
         <tr>
             <td>Pic using GET method: </td>
             <td>
-                <img data-th-src="${picture}" width="300px">
+                <img data-th-src="${picture}" height="300px">
             </td>
         </tr>
         <tr>
-            <td style="width: 300px; word-wrap: break-word;">Pic using base64 embed method: cannot retrieve byte[] directly. have to convert to base64 if you want to use this method</td>
+            <td style="width: 250px; word-wrap: break-word;">Pic using base64 embed method: cannot retrieve byte[] directly. have to convert to base64 if you want to use this method</td>
             <td>
-                <img data-th-src="${pic}" width="300px">
+                <img data-th-src="${pic}" height="300px">
             </td>
         </tr>
         <tr>
+            <td>Pic using hardcoded embed method: </td>
             <td>
-                <img data-th-src="data:image/png;base64, ${pic2}">
-                <span data-th-text="${pic2}">text</span>
+                <img data-th-src="${'data:image/jpeg;base64,' + pic2}" alt="pic2" height="300px">
             </td>
         </tr>
     </table>
