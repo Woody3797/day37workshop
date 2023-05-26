@@ -47,7 +47,6 @@ public class PostsController {
         // Embed image data directly, see upload.html for info (base64), 100k character limit, use GET method instead
         StringBuilder sb = new StringBuilder();
         String encoded = Base64.getEncoder().encodeToString(picture.getBytes());
-        System.out.println(encoded.substring(0, 100));
         String imageData = sb.append("data:").append(contentType).append(";base64,").append(encoded).toString();
         model.addAttribute("pic", imageData);
         model.addAttribute("pic2", encoded);
