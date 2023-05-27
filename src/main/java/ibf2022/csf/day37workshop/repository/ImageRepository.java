@@ -23,7 +23,6 @@ public class ImageRepository {
         return sqlrows > 0 ? true: false;
     }
 
-
     private static final String SQL_FIND_PICTURE_BY_ID = """
             SELECT picture from posts WHERE post_id = ?
             """;
